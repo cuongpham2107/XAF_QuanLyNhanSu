@@ -1,8 +1,6 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.DataProcessing.InMemoryDataProcessor;
+﻿
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
@@ -10,11 +8,10 @@ using DevExpress.Xpo;
 using DXApplication.Blazor.Common;
 using DXApplication.Module.BusinessObjects.categories;
 using DXApplication.Module.BusinessObjects.Manage.Customer;
+using DXApplication.Module.BusinessObjects.Manage.Projects;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using static DXApplication.Blazor.Common.Enum;
 
 namespace DXApplication.Module.BusinessObjects.Manage.Contract
@@ -118,6 +115,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Contract
             set => SetPropertyValue(nameof(KetThuc), ref ketThuc, value);
         }
         [XafDisplayName("Dự án")]
+        [[Association("Project-Contracts")]
         public Project DuAn
         {
             get => duAn;

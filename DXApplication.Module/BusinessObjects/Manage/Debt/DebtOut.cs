@@ -1,21 +1,24 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp;
+﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
+using DXApplication.Blazor.Common;
+using DXApplication.Module.BusinessObjects.Manage.Contract;
+using DXApplication.Module.BusinessObjects.Manage.Finance;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 
 namespace DXApplication.Module.BusinessObjects.Manage.Debt
 {
     [DefaultClassOptions]
-    public class DebtOut : BaseObject
+    [NavigationItem(Menu.MenuManage)]
+    [DefaultProperty($"[{nameof(LoaiCongNo)}] {nameof(NoiDung)} ({nameof(TongSoTien)})")]
+    [XafDisplayName("Công nợ phải trả")]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
+    [ListViewFindPanel(true)]
+    [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
+    public class DebtOut : Debt
     {
         public DebtOut(Session session)
             : base(session)
@@ -24,6 +27,31 @@ namespace DXApplication.Module.BusinessObjects.Manage.Debt
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+        }
+
+
+        float daTra;
+        Contract_A contract_A;
+        [XafDisplayName("Hợp đồng bên mua")]
+        public Contract_A Contract_A
+        {
+            get => contract_A;
+            set => SetPropertyValue(nameof(Contract_A), ref contract_A, value);
+        }
+        [XafDisplayName("Đã trả")]
+        public float DaTra
+        {
+            get => daTra;
+            set => SetPropertyValue(nameof(DaTra), ref daTra, value);
+        }
+        [XafDisplayName("Quá trình trả")]
+        [Association("DebtOut-FinanceOutcomes")]
+        public XPCollection<FinanceOutcome> FinanceOutcomes
+        {
+            get
+            {
+                return GetCollection<FinanceOutcome>(nameof(FinanceOutcomes));
+            }
         }
     }
 }

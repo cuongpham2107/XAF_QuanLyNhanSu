@@ -69,4 +69,9 @@ public class Enum
         [XafDisplayName("Phải thu")] phaithu = 0,
         [XafDisplayName("Phải trả")] phaitra = 1,
     }
+    public enum LoaiThuChi
+    {
+        [XafDisplayName("Thu")] thu = 0,
+        [XafDisplayName("Chi")] chi = 1,
+    }
 }

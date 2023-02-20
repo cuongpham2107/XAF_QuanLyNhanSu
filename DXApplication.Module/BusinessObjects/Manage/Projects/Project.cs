@@ -1,20 +1,15 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp;
+﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
-using DXApplication.Blazor.BusinessObjects;
 using DXApplication.Blazor.Common;
 using DXApplication.Module.BusinessObjects.categories;
-using DXApplication.Module.Extension;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using static DXApplication.Blazor.Common.Enum;
 
 namespace DXApplication.Module.BusinessObjects.Manage.Projects
@@ -142,6 +137,50 @@ namespace DXApplication.Module.BusinessObjects.Manage.Projects
         {
             get => ghiChu;
             set => SetPropertyValue(nameof(GhiChu), ref ghiChu, value);
+        }
+        [XafDisplayName("Hồ sơ")]
+        [Association("Project-Documents")]
+        public XPCollection<Document.Document> Documents
+        {
+            get
+            {
+                return GetCollection<Document.Document>(nameof(Documents));
+            }
+        }
+        [Association("Project-ProjectDatas")]
+        public XPCollection<ProjectData> ProjectDatas
+        {
+            get
+            {
+                return GetCollection<ProjectData>(nameof(ProjectDatas));
+            }
+        }
+        [XafDisplayName("Hợp đồng")]
+        [Association("Project-Contracts")]
+        public XPCollection<Contract.Contract> Contracts
+        {
+            get
+            {
+                return GetCollection<Contract.Contract>(nameof(Contracts));
+            }
+        }
+        [XafDisplayName("Thu chi")]
+        [Association("Project-Finances")]
+        public XPCollection<Finance.Finance> Finances
+        {
+            get
+            {
+                return GetCollection<Finance.Finance>(nameof(Finances));
+            }
+        }
+        [XafDisplayName("Công nợ")]
+        [Association("Project-Debts")]
+        public XPCollection<Debt.Debt> Debts
+        {
+            get
+            {
+                return GetCollection<Debt.Debt>(nameof(Debts));
+            }
         }
 
     }

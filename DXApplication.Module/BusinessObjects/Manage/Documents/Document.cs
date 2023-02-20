@@ -1,18 +1,14 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp;
+﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
-using DXApplication.Blazor.BusinessObjects;
 using DXApplication.Blazor.Common;
+using DXApplication.Module.BusinessObjects.Manage.Contract;
+using DXApplication.Module.BusinessObjects.Manage.Projects;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using static DXApplication.Blazor.Common.Enum;
 
 namespace DXApplication.Module.BusinessObjects.Manage.Document
@@ -35,6 +31,8 @@ namespace DXApplication.Module.BusinessObjects.Manage.Document
             base.AfterConstruction();
         }
 
+        Project project;
+        Contract_B contract_B;
         string tomTat;
         ThuocTinh_TaiLieu thuocTinh_TaiLieu;
         FileData file;
@@ -98,6 +96,19 @@ namespace DXApplication.Module.BusinessObjects.Manage.Document
         {
             get => thuocTinh_TaiLieu;
             set => SetPropertyValue(nameof(ThuocTinh_TaiLieu), ref thuocTinh_TaiLieu, value);
+        }
+        [XafDisplayName("Hợp đồng")]
+        public Contract_B Contract_B
+        {
+            get => contract_B;
+            set => SetPropertyValue(nameof(Contract_B), ref contract_B, value);
+        }
+        [XafDisplayName("Dự án")]
+        [Association("Project-Documents")]
+        public Project Project
+        {
+            get => project;
+            set => SetPropertyValue(nameof(Project), ref project, value);
         }
         [XafDisplayName("Tóm tắt")]
         [Size(SizeAttribute.Unlimited)]

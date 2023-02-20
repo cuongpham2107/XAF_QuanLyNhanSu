@@ -15,6 +15,22 @@
               <Item Id="Contract_B_ListView" ViewId="Contract_B_ListView" ObjectKey="" Index="1" IsNewNode="True" />
             </Items>
           </Item>
+          <Item Id="Debt_ListView">
+            <Items>
+              <Item Id="DebtIn_ListView" ViewId="DebtIn_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="DebtOut_ListView" ViewId="DebtOut_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="DebtIn_ListView" Removed="True" />
+          <Item Id="DebtOut_ListView" Removed="True" />
+          <Item Id="Finance_ListView">
+            <Items>
+              <Item Id="FinanceIncome_ListView" ViewId="FinanceIncome_ListView" ObjectKey="" Index="0" IsNewNode="True" />
+              <Item Id="FinanceOutcome_ListView" ViewId="FinanceOutcome_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="FinanceIncome_ListView" Removed="True" />
+          <Item Id="FinanceOutcome_ListView" Removed="True" />
         </Items>
       </Item>
     </Items>

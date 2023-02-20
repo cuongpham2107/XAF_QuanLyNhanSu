@@ -1,24 +1,26 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp;
+﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
-using DXApplication.Module.BusinessObjects.Manage.Contract;
+using DXApplication.Blazor.Common;
 using DXApplication.Module.BusinessObjects.Manage.Projects;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using static DXApplication.Blazor.Common.Enum;
 
 namespace DXApplication.Module.BusinessObjects.Manage.Debt
 {
     [DefaultClassOptions]
-    public class Debt : BaseObject
+    [NavigationItem(Menu.MenuManage)]
+    [DefaultProperty($"[{nameof(LoaiCongNo)}] {nameof(NoiDung)} ({nameof(TongSoTien)})")]
+    [XafDisplayName("Công nợ")]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
+    [ListViewFindPanel(true)]
+    [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
+
+    public abstract class Debt : BaseObject
     {
         public Debt(Session session)
             : base(session)
@@ -31,7 +33,6 @@ namespace DXApplication.Module.BusinessObjects.Manage.Debt
 
         string ghiChu;
         bool status;
-        float daThu;
         float tongSoTien;
         Project project;
         int thang;
@@ -78,6 +79,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Debt
         }
 
         [XafDisplayName("Dự án")]
+        [Association("Project-Debts")]
         public Project Project
         {
             get => project;
