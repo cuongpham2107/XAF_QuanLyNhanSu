@@ -3,6 +3,22 @@
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Quản lý">
+        <Items>
+          <Item Id="Contract_A_ListView" Removed="True" />
+          <Item Id="Contract_B_ListView" Removed="True" />
+          <Item Id="Contract_ListView">
+            <Items>
+              <Item Id="Contract_A_ListView" ViewId="Contract_A_ListView" ObjectKey="" Index="0" IsNewNode="True" />
+              <Item Id="Contract_B_ListView" ViewId="Contract_B_ListView" ObjectKey="" Index="1" IsNewNode="True" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
