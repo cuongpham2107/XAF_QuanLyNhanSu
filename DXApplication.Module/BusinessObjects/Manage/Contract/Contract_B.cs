@@ -7,6 +7,7 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using DXApplication.Blazor.Common;
+using DXApplication.Module.BusinessObjects.Manage.Debt;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,29 +34,37 @@ namespace DXApplication.Module.BusinessObjects.Manage.Contract
             base.AfterConstruction();
         }
 
-        float conNo;
-        float tongThu;
-        float giaTri;
+        DebtIn debtIn;
+        int conNo;
+        int tongThu;
+        int giaTri;
         [XafDisplayName("Giá trị")]
         [DetailViewLayout("Tài chính", 2)]
-        public float GiaTri
+        public int GiaTri
         {
             get => giaTri;
             set => SetPropertyValue(nameof(GiaTri), ref giaTri, value);
         }
         [XafDisplayName("Tổng thu")]
         [DetailViewLayout("Tài chính", 2)]
-        public float TongThu
+        public int TongThu
         {
             get => tongThu;
             set => SetPropertyValue(nameof(TongThu), ref tongThu, value);
         }
         [XafDisplayName("Còn nợ")]
         [DetailViewLayout("Tài chính", 2)]
-        public float ConNo
+        public int ConNo
         {
             get => conNo;
             set => SetPropertyValue(nameof(ConNo), ref conNo, value);
+        }
+        [XafDisplayName("Công nợ phải thu")]
+        [DetailViewLayout("Tài chính", 2)]
+        public DebtIn DebtIn
+        {
+            get => debtIn;
+            set => SetPropertyValue(nameof(DebtIn), ref debtIn, value);
         }
     }
 }

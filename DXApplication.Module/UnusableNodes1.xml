@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Calendar_ListView">
+      <Filters Id="Filters">
+        <Filter Id="@beb02080-110a-4b28-b1ca-6ff8ca7fd0cd" Removed="True" />
+      </Filters>
+    </ListView>
+  </Views>
+</Application>

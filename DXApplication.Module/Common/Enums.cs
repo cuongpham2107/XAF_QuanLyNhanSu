@@ -74,4 +74,13 @@ public class Enum
         [XafDisplayName("Thu")] thu = 0,
         [XafDisplayName("Chi")] chi = 1,
     }
+    public enum ChamCong
+    {
+        [XafDisplayName("Chưa điểm danh")] chuadiemdanh = 0,
+        [XafDisplayName("Có mặt")] comat = 1,
+        [XafDisplayName("Đến muộn/Về sớm")] denmuonvesom = 2,
+        [XafDisplayName("Vắng")] vang = 3,
+        [XafDisplayName("Nghỉ phép")] nghiphep = 4,
+
+    }
 }

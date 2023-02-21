@@ -21,6 +21,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Finance
     [XafDisplayName("Thu chi")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     [ListViewFindPanel(true)]
+
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
 
     public abstract class Finance : BaseObject
@@ -39,7 +40,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Finance
         Project project;
         FinanceSource financeSource;
         Personnel personnel;
-        float soTien;
+        int soTien;
         string noiDung;
         LoaiThuChi loaiThuChi;
         int quy;
@@ -92,7 +93,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Finance
             set => SetPropertyValue(nameof(NoiDung), ref noiDung, value);
         }
         [XafDisplayName("Số tiền")]
-        public float SoTien
+        public int SoTien
         {
             get => soTien;
             set => SetPropertyValue(nameof(SoTien), ref soTien, value);
@@ -132,9 +133,9 @@ namespace DXApplication.Module.BusinessObjects.Manage.Finance
             {
                 if (!IsLoading && !IsSaving)
                 {
-                    if (Ngay != null)
+                    if (Ngay != null && NoiDung != null)
                     {
-                        return $"[{Ngay}]({SoTien})";
+                        return $"[{Ngay}] {NoiDung} ({SoTien})";
                     }
                 }
                 return tomTat;

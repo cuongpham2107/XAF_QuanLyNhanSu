@@ -115,7 +115,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Contract
             set => SetPropertyValue(nameof(KetThuc), ref ketThuc, value);
         }
         [XafDisplayName("Dự án")]
-        [[Association("Project-Contracts")]
+        [Association("Project-Contracts")]
         public Project DuAn
         {
             get => duAn;

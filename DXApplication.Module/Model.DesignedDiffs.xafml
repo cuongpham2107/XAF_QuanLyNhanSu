@@ -2,6 +2,11 @@
 <Application Title="DXApplication">
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+    <Class Name="DXApplication.Module.BusinessObjects.Timekeeping.Calendar">
+      <AppearanceRules>
+        <AppearanceRule Id="NgayNghi" FontColor="Sienna" Criteria="[NgayNghi] = True" />
+      </AppearanceRules>
+    </Class>
   </BOModel>
   <NavigationItems>
     <Items>
@@ -23,6 +28,12 @@
           </Item>
           <Item Id="DebtIn_ListView" Removed="True" />
           <Item Id="DebtOut_ListView" Removed="True" />
+          <Item Id="Document_Group_ListView" Removed="True" />
+          <Item Id="Document_ListView">
+            <Items>
+              <Item Id="Document_Group_ListView" ViewId="Document_Group_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
           <Item Id="Finance_ListView">
             <Items>
               <Item Id="FinanceIncome_ListView" ViewId="FinanceIncome_ListView" ObjectKey="" Index="0" IsNewNode="True" />
@@ -31,6 +42,12 @@
           </Item>
           <Item Id="FinanceIncome_ListView" Removed="True" />
           <Item Id="FinanceOutcome_ListView" Removed="True" />
+          <Item Id="Project_ListView">
+            <Items>
+              <Item Id="ProjectData_ListView" ViewId="ProjectData_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="ProjectData_ListView" Removed="True" />
         </Items>
       </Item>
     </Items>
@@ -44,6 +61,12 @@
   </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="Calendar_ListView">
+      <Filters>
+        <Filter Id="Hôm nay" Criteria="[Ngay] = Today()" />
+        <Filter Id="Tuần này" Criteria="" />
+      </Filters>
+    </ListView>
     <ListView Id="Personnel_ListView" NewItemRowPosition="Bottom" />
   </Views>
 </Application>

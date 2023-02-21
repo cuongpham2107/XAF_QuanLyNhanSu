@@ -6,9 +6,11 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
+using DXApplication.Blazor.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using static DXApplication.Blazor.Common.Enum;
@@ -16,6 +18,12 @@ using static DXApplication.Blazor.Common.Enum;
 namespace DXApplication.Module.BusinessObjects.categories
 {
     [DefaultClassOptions]
+    [NavigationItem(Menu.MenuCatalog)]
+    [DefaultProperty(nameof(TenViTri))]
+    [XafDisplayName("Vị trí việc làm")]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
+    [ListViewFindPanel(true)]
+    [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
     public class Job_position : BaseObject
     {
         public Job_position(Session session)

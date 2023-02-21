@@ -7,6 +7,7 @@ using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using DXApplication.Blazor.Common;
 using DXApplication.Module.BusinessObjects.categories;
+using DXApplication.Module.Extension;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Projects
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     [ListViewFindPanel(true)]
     [LookupEditorMode(LookupEditorMode.AllItemsWithSearch)]
+    [CustomDetailView(Tabbed = true)]
 
     public class Project : BaseObject
     {
@@ -147,6 +149,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Projects
                 return GetCollection<Document.Document>(nameof(Documents));
             }
         }
+        [XafDisplayName("Dữ liệu ")]
         [Association("Project-ProjectDatas")]
         public XPCollection<ProjectData> ProjectDatas
         {

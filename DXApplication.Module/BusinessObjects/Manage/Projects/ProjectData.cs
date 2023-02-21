@@ -35,7 +35,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Projects
         bool status;
         int soLuong;
         DateTime? thoiHan;
-        float giaTri;
+        int giaTri;
         string thongTin;
 
         [XafDisplayName("Dự án")]
@@ -52,7 +52,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Projects
             set => SetPropertyValue(nameof(ThongTin), ref thongTin, value);
         }
         [XafDisplayName("Giá trị")]
-        public float GiaTri
+        public int GiaTri
         {
             get => giaTri;
             set => SetPropertyValue(nameof(GiaTri), ref giaTri, value);

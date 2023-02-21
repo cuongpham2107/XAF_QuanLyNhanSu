@@ -30,7 +30,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Debt
             base.AfterConstruction();
         }
 
-        float daThu;
+        int daThu;
         Contract_B contract_B;
         [XafDisplayName("Hợp đồng cung cấp")]
 
@@ -40,7 +40,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Debt
             set => SetPropertyValue(nameof(Contract_B), ref contract_B, value);
         }
         [XafDisplayName("Đã thu")]
-        public float DaThu
+        public int DaThu
         {
             get => daThu;
             set => SetPropertyValue(nameof(DaThu), ref daThu, value);

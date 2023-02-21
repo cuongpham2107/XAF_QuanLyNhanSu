@@ -20,5 +20,11 @@
     <SchemaModule Name="CloneObjectModule" Version="22.2.3.0" IsNewNode="True" />
     <SchemaModule Name="SystemModule" Version="22.2.3.0" IsNewNode="True" />
   </SchemaModules>
-  <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor" />
+  <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor">
+    <ListView Id="Calendar_ListView">
+      <Filters>
+        <Filter Id="Tuần này" Criteria="IsThisWeek([Ngay])" />
+      </Filters>
+    </ListView>
+  </Views>
 </Application>

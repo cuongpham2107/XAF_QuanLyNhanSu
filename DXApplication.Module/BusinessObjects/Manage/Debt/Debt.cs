@@ -33,7 +33,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Debt
 
         string ghiChu;
         bool status;
-        float tongSoTien;
+        int tongSoTien;
         Project project;
         int thang;
         int nam;
@@ -86,7 +86,7 @@ namespace DXApplication.Module.BusinessObjects.Manage.Debt
             set => SetPropertyValue(nameof(Project), ref project, value);
         }
         [XafDisplayName("Tổng số tiền")]
-        public float TongSoTien
+        public int TongSoTien
         {
             get => tongSoTien;
             set => SetPropertyValue(nameof(TongSoTien), ref tongSoTien, value);
